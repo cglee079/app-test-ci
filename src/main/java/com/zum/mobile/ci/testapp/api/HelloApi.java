@@ -8,6 +8,6 @@ public class HelloApi {
 
     @RequestMapping("/")
     public String hellWorld() {
-        return "Hello World? I am ci-test-app";
+        return "Hello World? I am ci-test-app, I am Upgrade!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
     }
 }

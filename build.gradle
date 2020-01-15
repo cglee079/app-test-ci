@@ -1,5 +1,6 @@
 plugins {
     id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'com.google.cloud.tools.jib' version '1.0.0'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
 }
@@ -13,12 +14,27 @@ repositories {
 }
 
 dependencies {
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
 }
 
+tasks.build.dependsOn tasks.jibBuildTar
+
+
 test {
     useJUnitPlatform()
+}
+
+jib {
+    from {
+        image = 'openjdk:alpine'
+    }
+    to {
+        image = "125.186.242.83:9981/${rootProject.name}"
+    }
+    allowInsecureRegistries true
 }

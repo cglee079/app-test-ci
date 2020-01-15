@@ -34,7 +34,7 @@ jib {
         image = 'openjdk:alpine'
     }
     to {
-        image = "125.186.242.83:9981/${rootProject.name}"
+        image = "localhost:9981/${rootProject.name}"
     }
     allowInsecureRegistries true
 }

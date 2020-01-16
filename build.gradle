@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.zum.mobile.ci'
-version = '0.0.1'
+version = 'v1'
 sourceCompatibility = '1.8'
 
 repositories {
@@ -34,7 +34,7 @@ jib {
         image = 'openjdk:alpine'
     }
     to {
-        image = "${rootProject.name}:${version}"
+        image = "192.168.219.103:9981${rootProject.name}:${version}"
     }
     allowInsecureRegistries true
 }
